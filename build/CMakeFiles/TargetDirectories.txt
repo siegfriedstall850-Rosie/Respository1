@@ -1,0 +1,3 @@
+D:/code/test_5_27/build/CMakeFiles/main.dir
+D:/code/test_5_27/build/CMakeFiles/edit_cache.dir
+D:/code/test_5_27/build/CMakeFiles/rebuild_cache.dir
