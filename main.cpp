@@ -1,29 +1,23 @@
 #include <Arduino.h>
 
-#include <U8g2lib.h>
-
-#define OLED_CLK  22  
-#define OLED_SDA  21
-// 构造对象
-U8G2_SSD1306_128X64_NONAME_F_SW_I2C OLED(U8G2_R0, OLED_CLK, OLED_SDA, U8X8_PIN_NONE);
+int ledPins[] = {2, 4, 5, 18};
+int numLeds = 4; // LED 的数量
 
 void setup() {
-  OLED.begin();
-  OLED.enableUTF8Print();
-  OLED.setFont(u8g2_font_wqy12_t_gb2312);
+    for (int i = 0; i < numLeds; i++) {
+        pinMode(ledPins[i], OUTPUT);
+        digitalWrite(ledPins[i], LOW);
+}
 }
 
 void loop() {
- 
-  OLED.clearBuffer();
-  OLED.setCursor(0, 10);
-  OLED.print("Can you feel my world");
+    for (int i = 0; i < numLeds; i++) {
+        digitalWrite(ledPins[i], HIGH); 
+        delay(300);                     
+    }
 
-  OLED.setCursor(0, 30);
-  OLED.print("真实的我没办法伪造");
-
-  OLED.sendBuffer();
-
-  delay(1000);
->>>>>>> b2de2fe (首次提交)
+    for (int i = 0; i < numLeds; i++) {
+        digitalWrite(ledPins[i], LOW);  
+        delay(300);                     
+    }
 }
